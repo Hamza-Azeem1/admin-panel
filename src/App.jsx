@@ -1,34 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+import Dashboard from './components/Dashboard';
+import ProductManagement from './components/ProductManagement';
+import OrderManagement from './components/OrderManagement';
+import UserManagement from './components/UserManagement';
+import Login from './components/Login';
+import PageNotFound from './components/PageNotFound'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const auth = localStorage.getItem('isAuthenticated');
+    if (auth === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('isAuthenticated');
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="flex h-screen bg-gray-100">
+        {isAuthenticated && <Sidebar />}
+        <div className="flex-1 flex flex-col overflow-hidden">
+          {isAuthenticated && <Header handleLogout={handleLogout} />}
+          <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
+            <Routes>
+              <Route path="/" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
+              <Route path="/products" element={isAuthenticated ? <ProductManagement /> : <Navigate to="/login" />} />
+              <Route path="/orders" element={isAuthenticated ? <OrderManagement /> : <Navigate to="/login" />} />
+              <Route path="/users" element={isAuthenticated ? <UserManagement /> : <Navigate to="/login" />} />
+              <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <Login setIsAuthenticated={setIsAuthenticated} />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </main>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
