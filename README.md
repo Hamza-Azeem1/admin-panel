@@ -1,8 +1,11 @@
-# React + Vite
+Admin panel Developed in react.js.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To run the project follow the steps:
+1- Download or clone the repository
+2- Open the file in VS code
+3- Open Terminal
+4- Install the dependencies using **npm install**
+5- Then run the start command: **npm run dev**
+6- use 'admin' for credentials
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+And you are ready to go!!!
