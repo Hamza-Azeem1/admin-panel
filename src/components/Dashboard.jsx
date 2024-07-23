@@ -37,19 +37,19 @@ const Dashboard = () => {
         <div className="p-6 space-y-8">
             <h2 className="text-2xl font-semibold mb-4">Dashboard Summary</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                <div className="bg-teal-100 p-4 rounded-lg shadow">
+                <div className="bg-white p-4 rounded-lg shadow">
                     <h3 className="text-lg font-semibold mb-2">Total Sales</h3>
                     <p className="text-3xl font-bold">$28,000</p>
                 </div>
-                <div className="bg-blue-100 p-4 rounded-lg shadow">
+                <div className="bg-white p-4 rounded-lg shadow border border-gray-200">
                     <h3 className="text-lg font-semibold mb-2">Total Orders</h3>
                     <p className="text-3xl font-bold">1,254</p>
                 </div>
-                <div className="bg-green-100 p-4 rounded-lg shadow">
+                <div className="bg-white p-4 rounded-lg shadow border border-gray-200">
                     <h3 className="text-lg font-semibold mb-2">Total Products</h3>
                     <p className="text-3xl font-bold">346</p>
                 </div>
-                <div className="bg-yellow-100 p-4 rounded-lg shadow">
+                <div className="bg-white p-4 rounded-lg shadow border border-gray-200">
                     <h3 className="text-lg font-semibold mb-2">Total Users</h3>
                     <p className="text-3xl font-bold">5,678</p>
                 </div>
@@ -58,23 +58,23 @@ const Dashboard = () => {
                 <h3 className="text-lg font-semibold mb-4">Sales Trend</h3>
                 <ResponsiveContainer width="100%" height={300}>
                     <AreaChart data={salesData}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" tick={{ fill: '#8b5cf6' }} />
-                        <YAxis tick={{ fill: '#8b5cf6' }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
                         <Tooltip />
-                        <Area type="monotone" dataKey="sales" stroke="#8b5cf6" fill="#8b5cf6" />
+                        <Area type="monotone" dataKey="sales" stroke="#4a90e2" fill="#d6eaf8" />
                     </AreaChart>
                 </ResponsiveContainer>
             </div>
-            <div className="bg-gray-500 p-4 rounded-lg shadow">
-                <h3 className="text-lg text-white font-semibold mb-4">Customer Visits Trend</h3>
+            <div className="bg-white p-4 rounded-lg shadow">
+                <h3 className="text-lg text-black font-semibold mb-4">Customer Visits Trend</h3>
                 <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={customerData}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" tick={{ fill: '#FFFFFF' }} />
-                        <YAxis tick={{ fill: '#FFFFFF' }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
                         <Tooltip />
-                        <Line type="monotone" dataKey="customers" stroke="#FFFFFF" />
+                        <Line type="monotone" dataKey="customers" stroke="#ff6f61" fill="#ffe0e0" />
                     </LineChart>
                 </ResponsiveContainer>
             </div>
