@@ -1,11 +1,39 @@
-**Admin panel Developed in react.js.**
+# Admin Panel Developed in React.js
 
-To run the project follow the steps:
-  1- Download or clone the repository
-  2- Open the file in VS code
-  3- Open Terminal
-  4- Install the dependencies using **npm install**
-  5- Then run the start command: **npm run dev**
-  6- use 'admin' for credentials
+Welcome to the Admin Panel project! Follow the steps below to get started:
 
-And you are ready to go!!!
+## Getting Started
+
+1. **Download or Clone the Repository**
+   - Use the following command to clone the repository:
+     ```sh
+     git clone https://github.com/Hamza-Azeem1/admin-panel.git
+     ```
+
+2. **Open the Project in VS Code**
+   - Navigate to the project directory and open it in Visual Studio Code.
+
+3. **Open the Terminal**
+   - You can open the terminal in VS Code by going to `View > Terminal`.
+
+4. **Install Dependencies**
+   - Run the following command to install the necessary dependencies:
+     ```sh
+     npm install
+     ```
+
+5. **Start the Development Server**
+   - Use the start command to run the development server:
+     ```sh
+     npm run dev
+     ```
+
+## Login Credentials
+
+- Use the following credentials to log in:
+  - **Username:** admin
+  - **Password:** admin
+
+And you are ready to go! Enjoy working with the Admin Panel.
+
+---
